@@ -1,0 +1,101 @@
+
+.button {
+  display: inline-block;
+
+  padding: 12px 22px;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  border: none;
+  border-radius: 5px;
+  
+  font-family: inherit;
+  font-size: .9rem;
+  font-weight: 700;
+  text-align: center;
+
+  cursor: pointer;
+
+  transition: background-color 100ms ease-out, color 100ms ease-out;
+
+  @extend .color-primary;
+  @extend .size-md;
+
+  // Colors
+  &.color-primary {
+    color: $color-white;
+    background-color: $color-darkaqua;
+
+    &:hover, &:active {
+      background-color: lighten($color-darkaqua, 6%);
+    }
+  }
+
+  &.color-secondary {
+    color: $color-white;
+    background-color: $color-lightaqua;
+
+    &:hover, &:active {
+      background-color: lighten($color-lightaqua, 6%);
+    }
+  }
+
+  &.color-tertiary {
+    color: $color-white;
+    background-color: $color-hotpink;
+
+    &:hover, &:active {
+      background-color: lighten($color-hotpink, 5%);
+    }
+  }
+
+  &.color-dark {
+    color: $color-white;
+    background-color: $color-charcoal; 
+
+    &:hover, &:active {
+      background-color: lighten($color-charcoal, 6%);
+    }
+  }
+
+  &.color-light {
+    color: $color-charcoal;
+    background-color: $color-lightgrey;
+
+    &:hover, &:active {
+      background-color: darken($color-lightgrey, 6%);
+    }
+  }
+
+  &.color-transparent {
+    color: $color-charcoal;
+    background-color: transparent;
+
+    &:hover, &:active {
+      color: lighten($color-charcoal, 55%);
+    }
+  }
+
+  // Sizes
+  &.size-sm {
+    padding: 8px 16px;
+    font-size: .7rem;
+  }
+  &.size-md {
+    padding: 12px 24px;
+    font-size: .9rem; 
+  }
+  &.size-lg {
+    padding: 15px 30px;
+    font-size: 1rem; 
+  }
+
+  // Other Variations
+  &.rounded {
+    border-radius: 100rem;
+  }
+  &.full-width {
+    display: block;
+    width: 100%;
+  }
+}

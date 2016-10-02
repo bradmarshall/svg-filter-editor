@@ -1,0 +1,134 @@
+
+// font-family: 'Karla', sans-serif;
+// font-family: 'Source Sans Pro', sans-serif;
+
+// Colors 
+$color-white: #fff;
+$color-black: #000;
+
+$color-grey: #eff2f5;
+$color-lightgrey: #f4f6f8;
+$color-charcoal: #23292c;
+
+$color-darkaqua: #008292;
+$color-lightaqua: #44ACBC;
+$color-hotpink: #d90c96;
+
+
+// Imports
+@import "buttons";
+@import "forms";
+
+
+// ------------------------------------------------------- [ General ]
+
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Karla', sans-serif;
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+p {
+  font-size: 1rem;
+  color: $color-charcoal;
+}
+
+
+// -------------------------------------------------------- [ Layout ]
+
+body > aside.tool-panel {
+  z-index: 2;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  width: 30%;
+
+  border-top: 5px solid #02bdff;
+  background-color: $color-lightgrey;
+  box-shadow: 0 0 50px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+
+  cursor: default;
+
+  & > section {
+    background-color: $color-white;
+    padding: 5% 8%;
+    border-bottom: 1px solid $color-grey;
+
+    &.control-row {
+      overflow: hidden;
+
+      label {
+        color: lighten($color-charcoal, 50%);
+      }
+
+      button {
+        float: right;
+      }
+      button#processFilters {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+body > main.work-space {
+  z-index: 1;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 0;
+  box-sizing: border-box;
+
+  background-image: url("checkerboard.svg");
+  background-size: 16px;
+  background-color: rgba(0,0,0,0.3);
+
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+body > main.work-space.grabbing {
+  cursor: -webkit-grabbing !important;
+  cursor: -moz-grabbing !important;
+  cursor: grabbing !important;
+}
+
+// ------------------------------------------------- [ Test Graphics ]
+
+svg#blinky {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  // width & height same as SVG viewbox.
+  width: 402.619px;
+  height: 496.21px;
+
+  background-color: transparent;
+
+  &.artboardIsVisible {
+    background-color: #fff;
+    
+    // I like the idea of a border being here, but leaving it off
+    // until I get around to compensating for the positioning offset
+    // it creates on the SVG.
+    //border: 1px solid #000;
+    
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+  }
+}

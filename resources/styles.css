@@ -1,0 +1,133 @@
+.button {
+  display: inline-block;
+  padding: 12px 22px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: .9rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 100ms ease-out, color 100ms ease-out; }
+  .button.color-primary, .button {
+    color: #fff;
+    background-color: #008292; }
+    .button.color-primary:hover, .button:hover, .button.color-primary:active, .button:active {
+      background-color: #009db1; }
+  .button.color-secondary {
+    color: #fff;
+    background-color: #44ACBC; }
+    .button.color-secondary:hover, .button.color-secondary:active {
+      background-color: #5bb6c4; }
+  .button.color-tertiary {
+    color: #fff;
+    background-color: #d90c96; }
+    .button.color-tertiary:hover, .button.color-tertiary:active {
+      background-color: #f10da7; }
+  .button.color-dark {
+    color: #fff;
+    background-color: #23292c; }
+    .button.color-dark:hover, .button.color-dark:active {
+      background-color: #31393d; }
+  .button.color-light {
+    color: #23292c;
+    background-color: #f4f6f8; }
+    .button.color-light:hover, .button.color-light:active {
+      background-color: #e1e7ec; }
+  .button.color-transparent {
+    color: #23292c;
+    background-color: transparent; }
+    .button.color-transparent:hover, .button.color-transparent:active {
+      color: #abb7bc; }
+  .button.size-sm {
+    padding: 8px 16px;
+    font-size: .7rem; }
+  .button.size-md, .button {
+    padding: 12px 24px;
+    font-size: .9rem; }
+  .button.size-lg {
+    padding: 15px 30px;
+    font-size: 1rem; }
+  .button.rounded {
+    border-radius: 100rem; }
+  .button.full-width {
+    display: block;
+    width: 100%; }
+
+html {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: 'Karla', sans-serif;
+  line-height: 1.65;
+  font-size: 16px; }
+
+p {
+  font-size: 1rem;
+  color: #23292c; }
+
+body > aside.tool-panel {
+  z-index: 2;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  width: 30%;
+  border-top: 5px solid #02bdff;
+  background-color: #f4f6f8;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: default; }
+  body > aside.tool-panel > section {
+    background-color: #fff;
+    padding: 5% 8%;
+    border-bottom: 1px solid #eff2f5; }
+    body > aside.tool-panel > section.control-row {
+      overflow: hidden; }
+      body > aside.tool-panel > section.control-row label {
+        color: #9daab1; }
+      body > aside.tool-panel > section.control-row button {
+        float: right; }
+      body > aside.tool-panel > section.control-row button#processFilters {
+        margin-right: 5px; }
+
+body > main.work-space {
+  z-index: 1;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url("checkerboard.svg");
+  background-size: 16px;
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab; }
+
+body > main.work-space.grabbing {
+  cursor: -webkit-grabbing !important;
+  cursor: -moz-grabbing !important;
+  cursor: grabbing !important; }
+
+svg#blinky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 402.619px;
+  height: 496.21px;
+  background-color: transparent; }
+  svg#blinky.artboardIsVisible {
+    background-color: #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); }
+
+/*# sourceMappingURL=styles.css.map */
