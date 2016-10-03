@@ -17,37 +17,27 @@
   <!--- Tool Panel -->
   <aside class="tool-panel">
     <section class="control-row">
-      <button id="centerSVG" class="button size-sm color-tertiary">Re-center Artwork</button>
-      <button id="processFilters" class="button size-sm color-secondary">Process Filters</button>
+      <button id="center-svg" class="button size-sm color-tertiary">Re-center Artwork</button>
+      <button id="process-filters" class="button size-sm color-secondary">Process Filters</button>
     </section>
     <section class="control-row">
-      <label for="centerSVG">Show artboard</label>
-      <button id="toggleArtboard" class="button size-sm color-transparent">Show</button>
+      <label for="toggle-artboard">Show artboard</label>
+      <button id="toggle-artboard" class="button size-sm color-transparent">Show</button>
+    </section>
+    <section class="control-row file-upload">
+      <label for="file-upload-control">Upload file</label>
+      <button><img id="file-upload-control" src="resources/icons/ic_file_upload_black_24px.svg"></button>
+      <input id="file-input" type="file">
     </section>
 
     <section>
-      <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-
-      <p>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis.</p>
+      <p>Welcome to the SVG Filter editor! Filter controls
+        will go here soon.</p>
     </section>
   </aside>
 
   <!--- Work Space -->
-  <main class="work-space">
-    <svg id="blinky" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 402.619 496.21" style="filter: url(#f2);">
-      <defs>
-
-      </defs>
-      <title>Blinky</title>
-      <style>.cls-1{fill:#f04e3a;}.cls-2{fill:#fff;}.cls-3{fill:#231f20;}</style>
-      <g>
-        <path class="cls-1" d="M453.571,443.069c-2.11,19.94-13.3,62.141-50.708,62.141s-37.412-62.141-74.823-62.141-37.407,62.141-74.813,62.141-37.408-62.141-74.816-62.141S141,505.21,103.6,505.21,55.63,462.9,53.645,443.069C47.815,384.843,53.571,209,53.571,209c0-110.457,89.543-200,200-200h0c110.457,0,200,89.543,200,200V436S453.757,441.311,453.571,443.069Z" transform="translate(-51.035 -9)"/>
-        <circle class="cls-2" cx="118.965" cy="200" r="73"/>
-        <circle class="cls-2" cx="288.965" cy="203" r="73"/>
-        <circle class="cls-3" cx="154.965" cy="203" r="25"/>
-        <circle class="cls-3" cx="327.965" cy="203" r="25"/>
-      </filter>
-    </svg>
+  <main id="work-space" class="work-space">
   </main>
 
 </body>

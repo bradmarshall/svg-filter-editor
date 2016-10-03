@@ -1,5 +1,6 @@
 .button {
   display: inline-block;
+  position: relative;
   padding: 12px 22px;
   text-transform: uppercase;
   white-space: nowrap;
@@ -11,35 +12,37 @@
   text-align: center;
   cursor: pointer;
   transition: background-color 100ms ease-out, color 100ms ease-out; }
+  .button:active {
+    top: 1px; }
   .button.color-primary, .button {
     color: #fff;
     background-color: #008292; }
-    .button.color-primary:hover, .button:hover, .button.color-primary:active, .button:active {
+    .button.color-primary:hover, .button:hover {
       background-color: #009db1; }
   .button.color-secondary {
     color: #fff;
     background-color: #44ACBC; }
-    .button.color-secondary:hover, .button.color-secondary:active {
+    .button.color-secondary:hover {
       background-color: #5bb6c4; }
   .button.color-tertiary {
     color: #fff;
     background-color: #d90c96; }
-    .button.color-tertiary:hover, .button.color-tertiary:active {
+    .button.color-tertiary:hover {
       background-color: #f10da7; }
   .button.color-dark {
     color: #fff;
     background-color: #23292c; }
-    .button.color-dark:hover, .button.color-dark:active {
+    .button.color-dark:hover {
       background-color: #31393d; }
   .button.color-light {
     color: #23292c;
     background-color: #f4f6f8; }
-    .button.color-light:hover, .button.color-light:active {
+    .button.color-light:hover {
       background-color: #e1e7ec; }
   .button.color-transparent {
     color: #23292c;
     background-color: transparent; }
-    .button.color-transparent:hover, .button.color-transparent:active {
+    .button.color-transparent:hover {
       color: #abb7bc; }
   .button.size-sm {
     padding: 8px 16px;
@@ -94,8 +97,14 @@ body > aside.tool-panel {
         color: #9daab1; }
       body > aside.tool-panel > section.control-row button {
         float: right; }
-      body > aside.tool-panel > section.control-row button#processFilters {
+      body > aside.tool-panel > section.control-row button#process-filters {
         margin-right: 5px; }
+      body > aside.tool-panel > section.control-row.file-upload button {
+        padding: 0;
+        border: none;
+        background: none; }
+      body > aside.tool-panel > section.control-row.file-upload input[type=file] {
+        display: none; }
 
 body > main.work-space {
   z-index: 1;
@@ -119,15 +128,17 @@ body > main.work-space.grabbing {
   cursor: -moz-grabbing !important;
   cursor: grabbing !important; }
 
-svg#blinky {
+.work-space.artboardIsVisible > svg {
+  background-color: #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); }
+.work-space > svg {
   position: absolute;
   top: 0;
   left: 0;
-  width: 402.619px;
-  height: 496.21px;
   background-color: transparent; }
-  svg#blinky.artboardIsVisible {
-    background-color: #fff;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); }
+  .work-space > svg * {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none; }
 
 /*# sourceMappingURL=styles.css.map */

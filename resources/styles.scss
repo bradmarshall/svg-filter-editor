@@ -74,8 +74,20 @@ body > aside.tool-panel {
       button {
         float: right;
       }
-      button#processFilters {
+      button#process-filters {
         margin-right: 5px;
+      }
+
+      // File Upload controls
+      &.file-upload {
+        button {
+          padding: 0;
+          border: none;
+          background: none;
+        }
+        input[type=file] {
+          display: none;
+        }
       }
     }
   }
@@ -108,27 +120,34 @@ body > main.work-space.grabbing {
   cursor: grabbing !important;
 }
 
-// ------------------------------------------------- [ Test Graphics ]
+// ---------------------------------------- [ The Loaded SVG Graphic ]
 
-svg#blinky {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  // width & height same as SVG viewbox.
-  width: 402.619px;
-  height: 496.21px;
-
-  background-color: transparent;
-
+.work-space {
   &.artboardIsVisible {
-    background-color: #fff;
-    
-    // I like the idea of a border being here, but leaving it off
-    // until I get around to compensating for the positioning offset
-    // it creates on the SVG.
-    //border: 1px solid #000;
-    
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+
+    & > svg {
+      background-color: #fff;
+      
+      // I like the idea of a border being here, but leaving it off
+      // until I get around to compensating for the positioning offset
+      // it creates on the SVG.
+      //border: 1px solid #000;
+      
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  & > svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: transparent;
+
+    * {
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
   }
 }
