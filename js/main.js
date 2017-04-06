@@ -1,4 +1,6 @@
 
+"use strict";
+
 document.addEventListener("DOMContentLoaded", function() {
   var workSpace = new WorkSpace();
   var toolPanel = new ToolPanel();
@@ -12,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var btnCenterSVG = document.querySelector("#center-svg");
   btnCenterSVG.addEventListener("click", function() {
-    workSpace.center(toolPanel);
+    workSpace.center(toolPanel.toolPanel);
   });
 
   var btnProcessFilters = document.querySelector("#process-filters");
@@ -26,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // File Upload.
-  var fileUploadControl = document.querySelector("#file-upload-control");
   var inputFileUpload   = document.querySelector("#file-input");
+  var fileUploadControl = document.querySelector("#file-upload-control");
 
   if(inputFileUpload) {
     inputFileUpload.addEventListener("change", function(e) {
@@ -49,20 +51,17 @@ document.addEventListener("DOMContentLoaded", function() {
   // ----------------------------- [ Handlers for ToolPanel Controls ]
 
   function processFilters() {
-    // alert("does nothing at the moment... soon!");
+    console.log("processing filters...");
 
     if(workSpace.currentDoc) {
-
-      // "add" appears to be a reference to the newly-added <filter>
-      // element in the currentDoc's <defs> section.
-      workSpace.currentDoc.filter(function(add) {
-        var hueRotate = add.colorMatrix('hueRotate', 180);
+      workSpace.currentDoc.filter(function(filterElement) {
+        var hueRotate = filterElement.colorMatrix('hueRotate', 180);
 
         // Add filter to entire SVG element. At some point I want to
         // let the user choose which layer/node to apply a filter to
         // but this should get us started playing around with filters
         // at least.
-        workSpace.currentDoc.attr("style", "filter: url(#" + hueRotate.attr("id") + ")");
+        workSpace.currentDoc.attr("filter", "url(#" + filterElement.attr("id") + ")");
       });      
     }
   }

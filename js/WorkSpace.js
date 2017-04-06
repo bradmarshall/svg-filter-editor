@@ -4,7 +4,6 @@ function WorkSpace() {
 
   this.toolPanel = document.querySelector("aside.tool-panel");
 
-  
   this.currentDoc = null; // An instance of SVG.Doc, as returned by SVG.js.
 
   this.artboardIsVisible = false;
@@ -128,7 +127,8 @@ WorkSpace.prototype.center = function(toolPanel) {
     // With the toolpanel taking up ~25% of the screen, we don't
     // really want "center of the viewport". We want "center of the
     // viewport, plus the width of the toolpanel".
-    if(toolPanel !== undefined) {
+    if(toolPanel !== undefined && toolPanel.nodeType &&
+      (toolPanel.nodeType == Node.ELEMENT_NODE)) {
       svgNewPosX += (toolPanel.clientWidth / 2) + (toolPanel.offsetLeft / 2);
     }
 
