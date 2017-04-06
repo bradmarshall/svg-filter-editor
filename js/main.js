@@ -1,31 +1,11 @@
 
 document.addEventListener("DOMContentLoaded", function() {
   var workSpace = new WorkSpace();
+  var toolPanel = new ToolPanel();
 
   // TODO: Check if the browser supports SVG.
   if(!SVG.supported) {
     // toss up an error dialog, maybe short-circuit the loading of the app.
-  }
-
-  var toolPanel = document.querySelector("aside.tool-panel");
-
-  toolPanel.addEventListener("mousedown", function(e) {
-    // block mousedowns from bubbling up to workspace element.
-    e.stopPropagation();
-  });
-
-  function processFilters() {
-    alert("does nothing at the moment... soon!");
-  }
-
-  function toggleArtboard() {
-    workSpace.toggleArtboard();
-    
-    if(workSpace.artboardIsVisible) {
-      btnToggleArtboard.textContent = "Hide";
-    } else {
-      btnToggleArtboard.textContent = "Show";
-    }
   }
 
   // ------------------------------------------ [ ToolPanel Controls ]
@@ -45,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
     toggleArtboard();
   });
 
-
+  // File Upload.
   var fileUploadControl = document.querySelector("#file-upload-control");
   var inputFileUpload   = document.querySelector("#file-input");
 
@@ -64,5 +44,36 @@ document.addEventListener("DOMContentLoaded", function() {
         inputFileUpload.click();
       }
     });
+  }
+
+  // ----------------------------- [ Handlers for ToolPanel Controls ]
+
+  function processFilters() {
+    // alert("does nothing at the moment... soon!");
+
+    if(workSpace.currentDoc) {
+
+      // "add" appears to be a reference to the newly-added <filter>
+      // element in the currentDoc's <defs> section.
+      workSpace.currentDoc.filter(function(add) {
+        var hueRotate = add.colorMatrix('hueRotate', 180);
+
+        // Add filter to entire SVG element. At some point I want to
+        // let the user choose which layer/node to apply a filter to
+        // but this should get us started playing around with filters
+        // at least.
+        workSpace.currentDoc.attr("style", "filter: url(#" + hueRotate.attr("id") + ")");
+      });      
+    }
+  }
+
+  function toggleArtboard() {
+    workSpace.toggleArtboard();
+    
+    if(workSpace.artboardIsVisible) {
+      btnToggleArtboard.textContent = "Hide";
+    } else {
+      btnToggleArtboard.textContent = "Show";
+    }
   }
 });

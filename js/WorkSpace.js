@@ -3,6 +3,7 @@ function WorkSpace() {
   this.workSpace = document.querySelector("main.work-space");
 
   this.toolPanel = document.querySelector("aside.tool-panel");
+
   
   this.currentDoc = null; // An instance of SVG.Doc, as returned by SVG.js.
 
@@ -79,10 +80,24 @@ WorkSpace.prototype.load = function(file) {
       // Get width/height from width & height attributes on svg element:
       //self.currentDoc.size(self.currentDoc.width(), self.currentDoc.height());
 
+      // You can get an instance of SVG.Viewbox like so:
+      //self.currentDoc.viewbox();
+
       // For now, set width & height attributes:
       self.currentDoc.size(500, 500);
 
+      // Center the artwork.
       self.center(self.toolPanel);
+
+      // Loop through all child nodes. Not used for anything just yet,
+      // but eventually will populate the layers palette with layers
+      // representing the child nodes of the loaded SVG. This is
+      // insane that you can even do this. SVG.js is awesome!
+      self.currentDoc.each(function(i, children) {
+        // console.log(this);
+        // console.log(i);
+        // console.log(children);
+      }, true);
     });
 
     fileReader.addEventListener("error", function() {
